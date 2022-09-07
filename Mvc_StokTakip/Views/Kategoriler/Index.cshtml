@@ -1,0 +1,40 @@
+﻿@using Mvc_StokTakip.Models.Entity;
+@model List<Kategoriler>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <td>KATEGORİ NO</td>
+        <td>KATEGORİ ADI</td>
+        <td>SİL</td>
+        <td>GÜNCELLE</td>
+    </tr>
+
+    @foreach (var ktgr in Model)
+    {
+        <tr>
+            <td>@ktgr.k_Id</td>
+            <td>@ktgr.k_Adi</td>
+            <td>@Html.ActionLink("SİL", "SİL", new { id = ktgr.k_Id }, new { @class = "btn btn-danger", onclick="return confirm('Silmek istediğinize emin misiniz?')" })</td>
+            <td>@Html.ActionLink("GÜNCELLE", "UpdateKtgr", "Kategoriler", new { id = ktgr.k_Id }, new { @class = "btn btn-primary" })</td>
+        </tr>
+
+
+    }
+</table>
+
+@Html.ActionLink("YENİ KATEGORİ EKLE", "AddKtgr", "Kategoriler", new { @class = "btn btn-info" })
+
+
+
+
+

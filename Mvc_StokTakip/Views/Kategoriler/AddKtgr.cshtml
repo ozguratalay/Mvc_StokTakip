@@ -1,0 +1,29 @@
+﻿@model Mvc_StokTakip.Models.Entity.Kategoriler
+@{
+    ViewBag.Title = "AddKtgr";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+<form method="post">
+
+
+ 
+
+    <div>
+        <label class="hidden">Kategori ID</label>
+        @Html.TextBoxFor(m => m.k_Id, new { @class = "form-control hidden" })
+
+        <label>Kategori Adı</label>
+        @Html.TextBoxFor(m => m.k_Adi, new { placeholder = "Doldurulması zorunlu alan", @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.k_Adi, "", new { @style = "color:red" })
+
+
+    </div>
+
+    <div style="margin-top: 10px">
+        <button class="btn btn-success" onclick="return confirm('Başarıyla eklendi');">Ekle</button>
+    </div>
+
+</form>
+
+

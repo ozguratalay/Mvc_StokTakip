@@ -1,0 +1,35 @@
+﻿@using Mvc_StokTakip.Models.Entity;
+@model List<Satislar>
+@{
+    ViewBag.Title = "Satislar_View";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Satış No</th>
+        <th>Satış Adı</th>
+        <th>Urun No</th>
+        <th>Müşteri No</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+
+    @foreach (var satis in Model)
+    {
+        <tr>
+            <td>@satis.s_Id</td>
+            <td>@satis.s_Adi</td>
+            <td>@satis.u_Id</td>
+            <td>@satis.m_Id</td>
+            <td>@satis.s_Fiyat</td>
+            <td>@satis.s_Adet</td>
+            <td>@Html.ActionLink("DELETE", "SİL", "Satislar", new { id = satis.s_Id }, new { @class = "btn btn-danger" }) </td>
+            <td>@Html.ActionLink("UPDATE", "UpdateSatislar", "Satislar", new { id = satis.s_Id }, new { @class = "btn btn-danger" })</td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("ADD", "AddSatis", "Satislar", new { @class = "btn btn-primary" })

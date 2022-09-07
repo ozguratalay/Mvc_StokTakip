@@ -1,0 +1,34 @@
+﻿@model Mvc_StokTakip.Models.Entity.Satislar
+@{
+    ViewBag.Title = "AddSatis";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+
+<form method="post">
+
+    <div>
+        <label class="hidden">Satış ID</label>
+        @Html.TextBoxFor(m => m.m_Id, new { @class = "form-control hidden" })
+
+        <label>Satış Adı</label>
+        @Html.TextBoxFor(m => m.s_Adi, new { @class = "form-control" })
+
+        <label>Ürün Kategorisi</label>
+        @Html.DropDownListFor(m => m.Urunler.u_Id, (SelectList)ViewBag.UrunlerOptions, new { @class = "form-control" })
+
+        <label>Müşteri</label>
+        @Html.DropDownListFor(m => m.Musteriler.m_Id, (SelectList)ViewBag.MusterilerOptions, new { @class = "form-control" })
+
+        <label>Satış Fiyat</label>
+        @Html.TextBoxFor(m => m.s_Fiyat, new { @class = "form-control" })
+
+        <label>Satış Adet</label>
+        @Html.TextBoxFor(m => m.s_Adet, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top: 10px">
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+</form>
+

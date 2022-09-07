@@ -1,0 +1,24 @@
+﻿@model Mvc_StokTakip.Models.Entity.Musteriler
+@{
+    ViewBag.Title = "UpdateMus";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+@using (Html.BeginForm("Update", "Musteriler", FormMethod.Post))
+{
+
+    <div>
+        <label class="hidden">Müşteri ID</label>
+        @Html.TextBoxFor(m => m.m_Id, new { @class = "form-control hidden" })
+
+        <label>Müşteri Adı</label>
+        @Html.TextBoxFor(m => m.m_Adi, new { @class = "form-control" })
+
+        <label>Müşteri Soyadı</label>
+        @Html.TextBoxFor(m => m.m_Soy, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top: 10px">
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}

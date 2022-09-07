@@ -1,0 +1,34 @@
+﻿@model Mvc_StokTakip.Models.Entity.Satislar
+@{
+    ViewBag.Title = "UpdateSatislar";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateSatis", "Satislar", FormMethod.Post))
+{
+        <div>
+            <label class="hidden">Satış ID</label>
+            @Html.TextBoxFor(m => m.m_Id, new { @class = "form-control hidden" })
+
+            <label>Satış Adı</label>
+            @Html.TextBoxFor(m => m.s_Adi, new { @class = "form-control" })
+
+            <label class="hidden">Ürün ID</label>
+            @Html.TextBoxFor(m => m.u_Id, new { @class = "form-control hidden" })
+
+            <label class="hidden">Müşteri ID</label>
+            @Html.TextBoxFor(m => m.m_Id, new { @class = "form-control hidden" })
+
+            <label>Satış Fiyat</label>
+            @Html.TextBoxFor(m => m.s_Fiyat, new { @class = "form-control" })
+
+            <label>Satış Adet</label>
+            @Html.TextBoxFor(m => m.s_Adet, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top: 10px">
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    
+}
+

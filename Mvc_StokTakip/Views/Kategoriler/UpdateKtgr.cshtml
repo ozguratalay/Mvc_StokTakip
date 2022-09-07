@@ -1,0 +1,27 @@
+﻿@model Mvc_StokTakip.Models.Entity.Kategoriler
+@{
+    ViewBag.Title = "UpdateKtgr";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+@using(Html.BeginForm("UPDATE", "Kategoriler", FormMethod.Post))
+{
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Kategori Detayları</th>
+        </tr>
+
+        <tr>
+            <td class="hidden">Kategori ID</td>
+            <td class="hidden">@Html.TextBoxFor(m => m.k_Id)</td>
+        </tr>
+
+        <tr>
+            <td>Kategori Adı</td>
+            <td>@Html.TextBoxFor(m => m.k_Adi)</td>
+        </tr>
+    </table>
+
+    <button class="btn btn-primary">GÜNCELLE</button>
+}
+

@@ -1,0 +1,37 @@
+﻿@using Mvc_StokTakip.Models.Entity;
+@model List<Urunler>
+@{
+    ViewBag.Title = "Urunler_View";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün No</th>
+        <th>Ürün Adı</th>
+        <th>Marka</th>
+        <th>Stok Adedi</th>
+        <th>Fiyat</th>
+        <th>Kategori No</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+
+    @foreach (var urnlr in Model)
+    {
+        <tr>
+            <td>@urnlr.u_Id</td>
+            <td>@urnlr.u_Adi</td>
+            <td>@urnlr.u_Marka</td>
+            <td>@urnlr.u_Stok</td>
+            <td>@urnlr.u_Fiyat</td>
+            <td>@urnlr.k_Id</td>
+            <td><button class="btn btn-danger">SİL</button></td>
+            <td><button class="btn btn-primary">GÜNCELLE</button></td>
+        </tr>
+    }
+</table>
+
+<button class="btn btn-info">YENİ BUTON EKLE</button>
+
+

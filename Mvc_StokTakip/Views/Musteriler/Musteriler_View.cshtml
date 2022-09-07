@@ -1,0 +1,40 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using Mvc_StokTakip.Models.Entity;
+@model PagedList.IPagedList<Musteriler>
+@*@model List<Musteriler>*@
+@{
+    ViewBag.Title = "Musteriler_View";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+<style>
+    th {
+        background-color: blue;
+    }
+</style>
+
+<table class="table table-striped">
+    <tr>
+        <th>Müşteri No</th>
+        <th>Müşteri Adı</th>-
+        <th>Müşteri Soyadı</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+
+    @foreach (var mstr in Model)
+    {
+        <tr>
+            <td>@mstr.m_Id</td>
+            <td>@mstr.m_Adi</td>
+            <td>@mstr.m_Soy</td>
+            <td>@Html.ActionLink("SİL", "SİL", new { id = mstr.m_Id }, new { @class = "btn btn-danger" })</td>
+            <td><a href="/Musteriler/UpdateMus/@mstr.m_Id" class="btn btn-primary">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+
+@Html.ActionLink("YENİ MÜŞTERİ EKLE", "AddMus", "Musteriler", new { @class = "btn btn-info" })
+@Html.PagedListPager((IPagedList)Model, Sayfa => Url.Action("Musteriler_View", new { Sayfa }))
